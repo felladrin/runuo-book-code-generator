@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<!--
+================================
+||     Book Code Generator    ||
+||    Written by Felladrin    ||
+================================
+-->
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Online Book Code Generator for RunUO</title>
+        <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QAAAAAAAD5Q7t/AAABzklEQVQ4y8WSMWtTYRSGn8hNDSFNrohWYhSRXMTQSXEpAemi4KI/oWAnBwd/h5MgIgoOziIdKlQHEUTUoQQjKAmFSAaHZMk1Q+53zrmfw00uLWTvWV/O+z7n5cBxTwFg+8U3f/F0mTQ1zFJSMxInPN7aKAA8ePrB4w1VRUVQVX4e/GX/5cNC4f7zL57CCZ5tXctd0zRlb/8PdzeuFADefv7l79y4fCT5+vYTKpUKAYCZAdDtdjHLkjbX1/nx+8Cvrla5sHaKTqeDmTGdTmm32ziXIG4lM1BVAKIowswQEYbDIcPBgFarRZKUiaIIESGOYwBckuBOrhB4DyoCQK/XI01TRIRarUYcxyRJkmuqynQ6pV6v45xDnCNITZG5QRRFWVGqjEYjvPf5zc1mE1VlMpkAIM4hIgSqijiH955+v593UK1W8+WFtiBoNBqZgTtkcJjAOcd4PMZ7n1MsCBYdiAgqjkAlWwAolUp5YrlcJgxDwjAkCAKKxeIRw8WpgYjDJQk3H71CnCDicrx77at473n97muWqIrNF80MFSUQES6dP7P0Td98+o6KcvvW5lJ9Z2eXYDabMYj/zZOPEpxbO4uZsff+41KCdP6Axzv/AeQCZUH19fmZAAAAAElFTkSuQmCC" rel="icon" type="image/x-icon" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="css/imageselect.css" rel="stylesheet" media="screen">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <span class="brand">Online Book Code Generator for RunUO</span>
+                        </div>
+                    </div>
+                    <form name="form" action="download.php" method="post">
+                        <div id="edition" class="row">
+                            <div class="span3">
+                                <input name="title" id="title" class="input-block-level" type="text" maxlength="25" placeholder="Book Title" onblur="document.form.file.value = 'CBook' + this.value.replace(/ /g, '');">
+                                <input name="author" id="author" class="input-block-level"  type="text" maxlength="25" placeholder="Book Author" onblur="document.form.cover.value = Math.floor(Math.random() * 1001);">
+                                <input name="file" id="file" class="input-block-level" type="text" placeholder="File Name" maxlength="30">
+                                <select name="itemid" id="itemid">
+                                    <option value="0x1C11">itemid/0x1C11.png</option>
+                                    <option value="0x1C13">itemid/0x1C13.png</option>
+                                    <option value="0x1E20">itemid/0x1E20.png</option>
+                                    <option value="0x2252">itemid/0x2252.png</option>
+                                    <option value="0x2253">itemid/0x2253.png</option>
+                                    <option value="0x2254">itemid/0x2254.png</option>
+                                    <option value="0x2259">itemid/0x2259.png</option>
+                                    <option value="0x225A">itemid/0x225A.png</option>
+                                    <option value="0x22C5">itemid/0x22C5.png</option>
+                                    <option value="0x238C">itemid/0x238C.png</option>
+                                    <option value="0x23A0">itemid/0x23A0.png</option>
+                                    <option value="0x2D9D">itemid/0x2D9D.png</option>
+                                    <option value="0xE3B">itemid/0xE3B.png</option>
+                                    <option value="0xFBE">itemid/0xFBE.png</option>
+                                    <option value="0xFEF">itemid/0xFEF.png</option>
+                                    <option value="0xFF0">itemid/0xFF0.png</option>
+                                    <option value="0xFF1">itemid/0xFF1.png</option>
+                                    <option value="0xFF2">itemid/0xFF2.png</option>
+                                    <option value="0xFF3">itemid/0xFF3.png</option>
+                                    <option value="0xFF4">itemid/0xFF4.png</option>
+                                </select><br/>
+                                <input name="cover" id="cover" class="input-block-level" type="text" placeholder="Cover Hue" maxlength="4">
+                                <select name="format" id="format" class="input-block-level">
+                                    <option value="yes">Enable AutoFormat</option>
+                                    <option value="no">Disable AutoFormat</option>
+                                </select>
+                            </div>
+                            <div class="span9">
+                                <textarea name="text" style="height: 210px;" class="input-block-level" placeholder="Book Content"></textarea>
+                                <input type="button" class="btn btn-success btn-block" value="Show me the code!" onclick="showCode();">
+                            </div>
+                        </div>
+                        <div id="result" style="display:none">
+                            <textarea name="thecode" class="input-block-level" spellcheck="false" style="height: 300px;" cols="100"></textarea>
+                            <div class="row">
+                                <div class="span4">
+                                    <input type="button" class="btn btn-warning btn-block" value="Back to Edition" onclick="backToEdition();">
+                                </div>
+                                <div class="span4">
+                                    <input type="button" class="btn btn-info btn-block" value="Compress" onclick="compress(document.form.thecode.value);">
+                                </div>
+                                <div class="span4">
+                                    <input type="submit" class="btn btn-success btn-block" value="Download">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="js/imageselect.js"></script>
+        <script src="js/bookcodegen.js"></script>
+    </body>
+</html>
