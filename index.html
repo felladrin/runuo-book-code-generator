@@ -10,12 +10,14 @@
         <meta http-equiv="content-type" content="text/html;charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Online Book Code Generator for RunUO</title>
-        <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QAAAAAAAD5Q7t/AAABzklEQVQ4y8WSMWtTYRSGn8hNDSFNrohWYhSRXMTQSXEpAemi4KI/oWAnBwd/h5MgIgoOziIdKlQHEUTUoQQjKAmFSAaHZMk1Q+53zrmfw00uLWTvWV/O+z7n5cBxTwFg+8U3f/F0mTQ1zFJSMxInPN7aKAA8ePrB4w1VRUVQVX4e/GX/5cNC4f7zL57CCZ5tXctd0zRlb/8PdzeuFADefv7l79y4fCT5+vYTKpUKAYCZAdDtdjHLkjbX1/nx+8Cvrla5sHaKTqeDmTGdTmm32ziXIG4lM1BVAKIowswQEYbDIcPBgFarRZKUiaIIESGOYwBckuBOrhB4DyoCQK/XI01TRIRarUYcxyRJkmuqynQ6pV6v45xDnCNITZG5QRRFWVGqjEYjvPf5zc1mE1VlMpkAIM4hIgSqijiH955+v593UK1W8+WFtiBoNBqZgTtkcJjAOcd4PMZ7n1MsCBYdiAgqjkAlWwAolUp5YrlcJgxDwjAkCAKKxeIRw8WpgYjDJQk3H71CnCDicrx77at473n97muWqIrNF80MFSUQES6dP7P0Td98+o6KcvvW5lJ9Z2eXYDabMYj/zZOPEpxbO4uZsff+41KCdP6Axzv/AeQCZUH19fmZAAAAAElFTkSuQmCC" rel="icon" type="image/x-icon" />
+        <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/imageselect.css" rel="stylesheet" media="screen">
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/FileSaver.js"></script>
+        <script src="js/Blob.js"></script>
     </head>
     <body>
         <div class="container">
@@ -75,7 +77,7 @@
                                     <input type="button" class="btn btn-info btn-block" value="Compress" onclick="compress(document.form.thecode.value);">
                                 </div>
                                 <div class="span4">
-                                    <input type="submit" class="btn btn-success btn-block" value="Download">
+                                    <input type="button" class="btn btn-success btn-block" value="Download" onclick="saveAs(new Blob([document.form.thecode.value], {type: 'text/cs;charset=utf-8'}), document.form.file.value + '.cs');">
                                 </div>
                             </div>
                         </div>
@@ -85,5 +87,6 @@
         </div>
         <script src="js/imageselect.js"></script>
         <script src="js/bookcodegen.js"></script>
+        <a href="https://github.com/felladrin/runuo-book-code-generator" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="img/forkme.png" alt="Fork me on GitHub"></a>
     </body>
 </html>
