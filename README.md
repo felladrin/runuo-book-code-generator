@@ -2,6 +2,8 @@
 
 RunUO Book Code Generator allows people to generate the code (C# script) of a book by simply filling out a form in the browser.
 
+Live Demo: [http://felladrin.github.io/runuo-book-code-generator](http://felladrin.github.io/runuo-book-code-generator/)
+
 ## Features ##
 
 - Easily sets Book Title, Book Author, File Name and the Book Cover.
@@ -11,7 +13,7 @@ RunUO Book Code Generator allows people to generate the code (C# script) of a bo
 - Limits the book content to 60,000 characters, to avoid overflow.
 - Allows to compress the code, if you don't intend to edit later.
 - Commented javascript code, intended to be easy to understand.
-- Downloadable cs file from generated code.
+- Downloadable book as a CS file.
 
 ## Usage ##
 
